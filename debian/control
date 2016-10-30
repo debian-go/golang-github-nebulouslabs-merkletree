@@ -1,0 +1,32 @@
+Source: golang-github-nebulouslabs-merkletree
+Section: devel
+Priority: extra
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Free Ekanayaka <freee@debian.org>
+Build-Depends: debhelper (>= 9),
+               dh-golang,
+               golang-go
+Standards-Version: 3.9.8
+Homepage: https://github.com/nebulouslabs/merkletree
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-go/packages/golang-github-nebulouslabs-merkletree.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-go/packages/golang-github-nebulouslabs-merkletree.git
+XS-Go-Import-Path: github.com/NebulousLabs/merkletree
+
+Package: golang-github-nebulouslabs-merkletree-dev
+Architecture: all
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         golang-go
+Description: Go package for working with Merkle trees
+ Calculate merkle roots, build and verify proofs that data is in a
+ merkle tree (http://en.wikipedia.org/wiki/Merkle_tree).
+ .
+ Specifically, this package is designed to facilitate the generation and
+ verification of "Merkle proofs" — cryptographic proofs that a given subset
+ of data "belongs" to a larger set. BitTorrent, for example, requires
+ downloading many small pieces of a file from many untrusted peers; Merkle
+ proofs allow the downloader to verify that each piece is part of the full
+ file.
+ .
+ When sha256 is used as the hashing algorithm, the implementation matches
+ the merkle tree described in RFC 6962, 'Certificate Transparency'.

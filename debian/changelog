@@ -1,0 +1,5 @@
+golang-github-nebulouslabs-merkletree (0.0~git20160203.0.f01b2e9-1) unstable; urgency=medium
+
+  * Initial release (Closes: #852124)
+
+ -- Free Ekanayaka <freee@debian.org>  Sun, 30 Oct 2016 14:30:21 +0000

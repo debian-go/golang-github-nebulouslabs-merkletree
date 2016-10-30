@@ -1,16 +1,11 @@
-language: go
+sudo: required
 
-go:
-  - 1.5.3
+services:
+  - docker
 
-install:
-  - go get -u github.com/golang/lint/golint
-  - go get -u github.com/kisielk/errcheck
-  - go get -u golang.org/x/tools/cmd/cover
-  - go get -u golang.org/x/tools/cmd/vet
-  - test -z "$(go fmt)"
-  - test -z "$(golint)"
+script:
+  - wget -O- http://travis.debian.net/script.sh | sh -
 
-script: errcheck && go vet && go test -v -tags=debug -bench=. && go test -covermode=atomic && go install
-
-sudo: false
+branches:
+  except:
+    - /^debian\/\d/
