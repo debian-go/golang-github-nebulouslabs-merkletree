@@ -1,6 +1,6 @@
 Source: golang-github-nebulouslabs-merkletree
 Section: devel
-Priority: extra
+Priority: optional
 Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
 Uploaders: Free Ekanayaka <freee@debian.org>
 Build-Depends: debhelper (>= 9),
