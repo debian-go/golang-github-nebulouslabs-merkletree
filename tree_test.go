@@ -56,7 +56,7 @@ func CreateMerkleTester(t *testing.T) (mt *MerkleTester) {
 	}
 
 	// Manually build out expected Merkle root values.
-	mt.roots[0] = sum(sha256.New(), nil)
+	mt.roots[0] = nil
 	mt.roots[1] = mt.leaves[0]
 	mt.roots[2] = mt.join(mt.leaves[0], mt.leaves[1])
 	mt.roots[3] = mt.join(
@@ -232,7 +232,7 @@ func TestBuildRoot(t *testing.T) {
 
 	// Compare the results of calling Root against all of the manually
 	// constructed Merkle trees.
-	tree := New(sha256.New())
+	var tree *Tree
 	for i, root := range mt.roots {
 		// Fill out the tree.
 		tree = New(sha256.New())
@@ -333,12 +333,6 @@ func TestBuildAndVerifyProof(t *testing.T) {
 // TestBadInputs provides malicious inputs to the functions of the package,
 // trying to trigger panics or unexpected behavior.
 func TestBadInputs(t *testing.T) {
-	// Put nil into sum.
-	a := sum(sha256.New(), nil)
-	if a != nil {
-		t.Error("sum of nil should return nil")
-	}
-
 	// Get the root and proof of an empty tree.
 	tree := New(sha256.New())
 	root := tree.Root()
@@ -374,13 +368,13 @@ func TestBadInputs(t *testing.T) {
 		t.Error("VerifyProof should return false for nil proof set")
 	}
 	if VerifyProof(sha256.New(), mt.roots[15], mt.proofSets[15][3][1:], 3, 15) {
-		t.Error("VerifyPRoof should return false for too-short proof set")
+		t.Error("VerifyProof should return false for too-short proof set")
 	}
 	if VerifyProof(sha256.New(), mt.roots[15], mt.proofSets[15][10][1:], 10, 15) {
-		t.Error("VerifyPRoof should return false for too-short proof set")
+		t.Error("VerifyProof should return false for too-short proof set")
 	}
 	if VerifyProof(sha256.New(), mt.roots[15], mt.proofSets[15][10], 15, 0) {
-		t.Error("VerifyPRoof should return false when numLeaves is 0")
+		t.Error("VerifyProof should return false when numLeaves is 0")
 	}
 }
 
