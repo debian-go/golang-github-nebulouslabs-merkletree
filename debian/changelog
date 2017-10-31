@@ -1,3 +1,11 @@
+golang-github-nebulouslabs-merkletree (0.0~git20170901.0.8482d02-1) unstable; urgency=medium
+
+  * New upstream version 0.0~git20170901.0.8482d02
+  * Set priority to optional
+  * Bump standards-version to 4.1.1
+
+ -- Free Ekanayaka <freee@debian.org>  Tue, 31 Oct 2017 23:27:06 +0000
+
 golang-github-nebulouslabs-merkletree (0.0~git20160203.0.f01b2e9-1) unstable; urgency=medium
 
   * Initial release (Closes: #852124)
