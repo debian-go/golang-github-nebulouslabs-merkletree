@@ -6,7 +6,7 @@ Uploaders: Free Ekanayaka <freee@debian.org>
 Build-Depends: debhelper (>= 9),
                dh-golang,
                golang-go
-Standards-Version: 3.9.8
+Standards-Version: 4.1.1
 Homepage: https://github.com/nebulouslabs/merkletree
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-go/packages/golang-github-nebulouslabs-merkletree.git
 Vcs-Git: https://anonscm.debian.org/git/pkg-go/packages/golang-github-nebulouslabs-merkletree.git
